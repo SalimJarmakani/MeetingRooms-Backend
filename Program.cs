@@ -16,13 +16,13 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-// Register your DbContext
+
 builder.Services.AddDbContext<MeetingRoomsContext>(options =>
 {
 	options.UseSqlServer("Server=.\\SQLExpress;Database=meetingRooms;Trusted_Connection=True;Encrypt=False");
 });
 
-// Register your repositories
+// Register the Respositories and add them as dependancy injection
 builder.Services.AddScoped<IEmployeeRepository, EmployeeRepository>();
 builder.Services.AddScoped<ICompanyRepository, CompanyRepository>();
 
