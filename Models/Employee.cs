@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text.Json.Serialization;
 
 namespace MeetingRooms_Backend.Models;
 
@@ -21,9 +22,12 @@ public partial class Employee
 
     public int? CompanyId { get; set; }
 
+    [JsonIgnore]
     public virtual ICollection<Company> Companies { get; set; } = new List<Company>();
 
     public virtual Company? Company { get; set; }
+
+    [JsonIgnore]
 
     public virtual ICollection<Reservation> Reservations { get; set; } = new List<Reservation>();
 }

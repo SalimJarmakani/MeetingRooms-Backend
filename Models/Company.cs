@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text.Json.Serialization;
 
 namespace MeetingRooms_Backend.Models;
 
@@ -23,5 +24,7 @@ public partial class Company
 
     public virtual ICollection<Employee> Employees { get; set; } = new List<Employee>();
 
+
+    [JsonIgnore]
     public virtual ICollection<Room> Rooms { get; set; } = new List<Room>();
 }

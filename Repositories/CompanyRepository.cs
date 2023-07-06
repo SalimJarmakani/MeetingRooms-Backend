@@ -53,16 +53,11 @@ namespace MeetingRoom.Repositories
 
 		public List<Employee> GetEmployeesByCompanyId(int companyId)
 		{
-			var company = _context.Companies
-				.Include(c => c.Employees)
-				.FirstOrDefault(c => c.Id == companyId);
+			var employees = _context.Employees
+				.Where(e => e.CompanyId == companyId)
+				.ToList();
 
-			if (company != null)
-			{
-				return company.Employees.ToList();
-			}
-
-			return new List<Employee>();
+			return employees;
 		}
 	}
 }
