@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using MeetingRooms_Backend.Models.Auth;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-
+using Microsoft.AspNetCore.Identity;
 namespace MeetingRooms_Backend.Models;
 
-public partial class MeetingRoomsContext : DbContext
+public partial class MeetingRoomsContext : IdentityDbContext<User,Role,Guid>
 {
     public MeetingRoomsContext()
     {
@@ -28,6 +30,7 @@ public partial class MeetingRoomsContext : DbContext
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
+        base.OnModelCreating(modelBuilder);
         modelBuilder.Entity<Company>(entity =>
         {
             entity.HasKey(e => e.Id).HasName("PK__Company__3213E83F9528FFBF");
