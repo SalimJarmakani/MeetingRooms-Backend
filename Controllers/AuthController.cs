@@ -21,6 +21,7 @@ namespace MyMusic.Api.Controllers
 			_userManager = userManager;
 		}
 
+
 		[HttpPost("signup")]
 		public async Task<IActionResult> SignUp(UserSignUpResource userSignUpResource)
 		{
