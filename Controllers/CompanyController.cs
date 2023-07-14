@@ -2,6 +2,7 @@
 
 using MeetingRoom.Services;
 using MeetingRooms_Backend.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
 
@@ -9,6 +10,8 @@ namespace MeetingRoom.Controllers
 {
 	[ApiController]
 	[Route("api/[controller]")]
+
+	[Authorize]
 	public class CompanyController : ControllerBase
 	{
 		private readonly ICompanyRepository _companyRepository;
