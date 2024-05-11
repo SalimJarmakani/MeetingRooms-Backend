@@ -21,11 +21,12 @@ namespace MeetingRoom.Repositories
 			return _context.Companies.ToList();
 		}
 
-		public Company GetCompanyById(int id)
+		public async Task<Company?> GetCompanyById(int id)
 		{
-			return _context.Companies
+			Company? company = await _context.Companies
 				.Include(c => c.Employees) // Include the related employees
-				.FirstOrDefault(c => c.Id == id);
+				.FirstOrDefaultAsync(c => c.Id == id);
+			return company; 
 		}
 
 		public void AddCompany(Company company)

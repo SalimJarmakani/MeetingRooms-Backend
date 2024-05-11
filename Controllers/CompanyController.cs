@@ -29,9 +29,9 @@ namespace MeetingRoom.Controllers
 		}
 
 		[HttpGet("{id}")]
-		public IActionResult GetCompanyById(int id)
+		public async Task<IActionResult> GetCompanyById(int id)
 		{
-			var company = _companyRepository.GetCompanyById(id);
+			var company = await _companyRepository.GetCompanyById(id);
 			if (company == null)
 				return NotFound();
 

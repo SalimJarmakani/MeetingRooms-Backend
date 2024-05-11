@@ -21,6 +21,11 @@ using Microsoft.Extensions.Options;
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Services.AddCors(policyBuilder =>
+	policyBuilder.AddDefaultPolicy(policy =>
+		policy.WithOrigins("*").AllowAnyHeader().AllowAnyHeader())
+);
+
 // Add services to the container.
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
@@ -107,6 +112,8 @@ builder.Services.AddAuthentication(options =>
 
 
 
+
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -119,6 +126,8 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 app.UseAuthentication();
 app.UseAuthorization();
+
+app.UseCors();
 
 app.MapControllers();
 

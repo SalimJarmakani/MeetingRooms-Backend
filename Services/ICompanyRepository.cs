@@ -8,7 +8,7 @@ namespace MeetingRoom.Services
 	{
 
 		IEnumerable<Company> GetAllCompanies();
-		Company GetCompanyById(int companyId);
+		Task<Company?> GetCompanyById(int companyId);
 		void AddCompany(Company company);
 		void UpdateCompany(Company company);
 		void DeleteCompany(int id);

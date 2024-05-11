@@ -22,6 +22,7 @@ public partial class Company
 
     public virtual Employee? Employee { get; set; }
 
+    [JsonIgnore]
     public virtual ICollection<Employee> Employees { get; set; } = new List<Employee>();
 
 
