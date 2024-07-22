@@ -2,22 +2,14 @@ using MeetingRoom.Repositories;
 using MeetingRoom.Services;
 using MeetingRooms_Backend.Models;
 using MeetingRooms_Backend.Models.Auth;
-using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
 using System.Text.Json.Serialization;
-using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
-using AutoMapper;
 using Microsoft.AspNetCore.Identity;
 using MeetingRooms_Backend.Settings;
-using Microsoft.Extensions.Configuration;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using Microsoft.OpenApi.Models;
-using Microsoft.Extensions.Options;
 
 var builder = WebApplication.CreateBuilder(args);
 
